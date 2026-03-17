@@ -1,0 +1,1297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BLC Spring Conference 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --peach:    #f5e6d3;
+      --peach-mid:#ebd4ba;
+      --teal:     #1a5f6a;
+      --teal-dark:#0f3d45;
+      --coral:    #c0452a;
+      --amber:    #e8a020;
+      --sand:     #f0e0c8;
+      --charcoal: #1e1e1e;
+      --white:    #ffffff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--peach);
+      color: var(--charcoal);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(245,230,211,0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--peach-mid);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2.5rem;
+      height: 64px;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      text-decoration: none;
+    }
+
+    .nav-logo img {
+      height: 36px;
+      width: auto;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--teal-dark);
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--coral); }
+
+    .btn-nav {
+      background: var(--teal);
+      color: white !important;
+      padding: 0.55rem 1.4rem;
+      border-radius: 6px;
+      font-size: 0.85rem !important;
+      transition: background 0.2s !important;
+    }
+
+    .btn-nav:hover { background: var(--teal-dark) !important; color: white !important; }
+
+    /* ── HAMBURGER ── */
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      z-index: 101;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--teal-dark);
+      border-radius: 2px;
+      transition: transform 0.3s, opacity 0.3s;
+      transform-origin: center;
+    }
+
+    .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-toggle.open span:nth-child(2) { opacity: 0; }
+    .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 8rem 2rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg-lines {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .hero-bg-lines::before,
+    .hero-bg-lines::after {
+      content: '';
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.18;
+    }
+
+    .hero-bg-lines::before {
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, var(--coral) 0%, transparent 70%);
+      top: -200px; right: -150px;
+    }
+
+    .hero-bg-lines::after {
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, var(--teal) 0%, transparent 70%);
+      bottom: -100px; left: -100px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--teal);
+      color: white;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.4rem 1rem;
+      border-radius: 100px;
+      margin-bottom: 1.8rem;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    .hero-badge-dot {
+      width: 6px; height: 6px;
+      background: var(--amber);
+      border-radius: 50%;
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 7vw, 6rem);
+      font-weight: 900;
+      line-height: 1.05;
+      color: var(--teal-dark);
+      margin-bottom: 0.4rem;
+      animation: fadeUp 0.6s 0.1s ease both;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--coral);
+    }
+
+    .hero-sub {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+      font-weight: 700;
+      font-style: italic;
+      color: var(--teal);
+      margin-bottom: 1.5rem;
+      animation: fadeUp 0.6s 0.2s ease both;
+    }
+
+    .hero-meta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+      animation: fadeUp 0.6s 0.3s ease both;
+    }
+
+    .hero-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.95rem;
+      color: var(--teal-dark);
+      font-weight: 500;
+    }
+
+    .hero-meta-item svg { color: var(--coral); flex-shrink: 0; }
+
+    .hero-ctas {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      animation: fadeUp 0.6s 0.4s ease both;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--coral);
+      color: white;
+      text-decoration: none;
+      padding: 0.85rem 2rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 500;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(192,69,42,0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(192,69,42,0.4);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: transparent;
+      color: var(--teal-dark);
+      text-decoration: none;
+      padding: 0.85rem 2rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 500;
+      border: 2px solid var(--teal);
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .btn-secondary:hover { background: var(--teal); color: white; }
+
+    .hero-scroll-hint {
+      position: absolute;
+      bottom: 0.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--teal);
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.6;
+      animation: fadeUp 1s 1s ease both;
+    }
+
+    .scroll-arrow {
+      width: 20px; height: 20px;
+      border-right: 2px solid var(--teal);
+      border-bottom: 2px solid var(--teal);
+      transform: rotate(45deg);
+      animation: bounce 1.5s infinite;
+    }
+
+    /* ── SECTION SHARED ── */
+    section { padding: 5rem 2rem; }
+
+    .container { max-width: 1000px; margin: 0 auto; }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--coral);
+      margin-bottom: 0.6rem;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 700;
+      color: var(--teal-dark);
+      margin-bottom: 1.5rem;
+      line-height: 1.15;
+    }
+
+    .section-divider {
+      width: 60px;
+      height: 3px;
+      background: var(--teal);
+      margin-bottom: 2rem;
+      border-radius: 2px;
+    }
+
+    /* ── ABOUT ── */
+    .about { background: white; }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .about-body { font-size: 1rem; line-height: 1.8; color: #444; }
+    .about-body p + p { margin-top: 1rem; }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .stat-card {
+      background: var(--peach);
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: center;
+      border: 1px solid var(--peach-mid);
+    }
+
+    .stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem;
+      font-weight: 900;
+      color: var(--coral);
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--teal-dark);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* ── PROGRAMME ── */
+    .programme { background: var(--peach); }
+
+    .timeline { position: relative; padding-left: 2rem; }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--teal), var(--amber), var(--coral));
+      border-radius: 2px;
+    }
+
+    .timeline-item {
+      position: relative;
+      padding: 0 0 2rem 2rem;
+      opacity: 0;
+      transform: translateX(-10px);
+      animation: slideIn 0.4s ease forwards;
+    }
+
+    .timeline-item:nth-child(1)  { animation-delay: 0.05s; }
+    .timeline-item:nth-child(2)  { animation-delay: 0.1s; }
+    .timeline-item:nth-child(3)  { animation-delay: 0.15s; }
+    .timeline-item:nth-child(4)  { animation-delay: 0.2s; }
+    .timeline-item:nth-child(5)  { animation-delay: 0.25s; }
+    .timeline-item:nth-child(6)  { animation-delay: 0.3s; }
+    .timeline-item:nth-child(7)  { animation-delay: 0.35s; }
+    .timeline-item:nth-child(8)  { animation-delay: 0.4s; }
+    .timeline-item:nth-child(9)  { animation-delay: 0.45s; }
+    .timeline-item:nth-child(10) { animation-delay: 0.5s; }
+    .timeline-item:nth-child(11) { animation-delay: 0.55s; }
+    .timeline-item:nth-child(12) { animation-delay: 0.6s; }
+    .timeline-item:nth-child(13) { animation-delay: 0.65s; }
+
+    .timeline-dot {
+      position: absolute;
+      left: -2.35rem; top: 0.2rem;
+      width: 12px; height: 12px;
+      border-radius: 50%;
+      background: var(--teal);
+      border: 2px solid var(--peach);
+    }
+
+    .timeline-item.break .timeline-dot  { background: var(--amber); }
+    .timeline-item.highlight .timeline-dot {
+      background: var(--coral);
+      width: 16px; height: 16px;
+      left: -2.55rem;
+    }
+
+    .timeline-time {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--coral);
+      letter-spacing: 0.05em;
+      margin-bottom: 0.2rem;
+    }
+
+    .timeline-item.break .timeline-time { color: var(--amber); }
+
+    .timeline-title {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--teal-dark);
+      line-height: 1.4;
+    }
+
+    .timeline-item.break .timeline-title {
+      color: #888;
+      font-style: italic;
+      font-size: 0.9rem;
+    }
+
+    .timeline-item.highlight .timeline-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--coral);
+    }
+
+    .timeline-speaker { font-size: 0.82rem; color: #888; margin-top: 0.15rem; }
+
+    /* ── WORKSHOPS ── */
+    .workshops { background: var(--teal-dark); color: white; }
+
+    .workshops .section-label  { color: var(--amber); }
+    .workshops .section-title  { color: white; }
+    .workshops .section-divider { background: var(--amber); }
+
+    .workshops-intro {
+      color: rgba(255,255,255,0.7);
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+      max-width: 580px;
+    }
+
+    .streams-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .stream-card {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 12px;
+      padding: 2rem 1.5rem;
+      transition: transform 0.2s, background 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stream-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+    }
+
+    .stream-card:nth-child(1)::before { background: var(--coral); }
+    .stream-card:nth-child(2)::before { background: var(--amber); }
+    .stream-card:nth-child(3)::before { background: #5bc4d0; }
+
+    .stream-card:hover { transform: translateY(-4px); background: rgba(255,255,255,0.11); }
+
+    .stream-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      font-weight: 900;
+      color: rgba(255,255,255,0.1);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .stream-name  { font-size: 1.1rem; font-weight: 600; color: white; margin-bottom: 0.5rem; }
+
+    .stream-desc  {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.6;
+      margin-bottom: 1.2rem;
+    }
+
+    .stream-capacity {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(255,255,255,0.1);
+      border-radius: 100px;
+      padding: 0.3rem 0.8rem;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--amber);
+    }
+
+    /* ── SPONSORS ── */
+    .sponsors { background: white; }
+
+    .sponsors-intro { color: #666; font-size: 0.95rem; margin-bottom: 2.5rem; }
+
+    .sponsors-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .sponsor-card {
+      border: 2px solid var(--peach-mid);
+      border-radius: 12px;
+      padding: 2rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.8rem;
+      transition: border-color 0.2s, transform 0.2s;
+      text-align: center;
+    }
+
+    .sponsor-card:hover { border-color: var(--teal); transform: translateY(-2px); }
+
+    .sponsor-tier {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--coral);
+    }
+
+    .sponsor-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--teal-dark);
+    }
+
+    .sponsor-placeholder { border-style: dashed; opacity: 0.5; }
+
+    .sponsor-placeholder .sponsor-name {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      font-style: italic;
+      color: #aaa;
+    }
+
+    .sponsor-card img {
+      max-width: 160px;
+      max-height: 60px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .sponsor-card.dark {
+      background: #3a3a3a;
+      border-color: #3a3a3a;
+    }
+
+    .sponsor-card.dark .sponsor-tier { color: #ccc; }
+
+    /* ── REGISTER CTA ── */
+    .register-cta {
+      background: linear-gradient(135deg, var(--coral) 0%, #a03020 100%);
+      color: white;
+      text-align: center;
+    }
+
+    .register-cta .section-label  { color: rgba(255,255,255,0.7); }
+    .register-cta .section-title  { color: white; }
+    .register-cta .section-divider { background: rgba(255,255,255,0.4); margin: 0 auto 1.5rem; }
+
+    .register-body {
+      color: rgba(255,255,255,0.85);
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+      max-width: 540px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .btn-white {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: white;
+      color: var(--coral);
+      text-decoration: none;
+      padding: 1rem 2.5rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    }
+
+    .btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.3); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--teal-dark);
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.82rem;
+    }
+
+    footer a { color: rgba(255,255,255,0.7); text-decoration: none; }
+    footer a:hover { color: white; }
+
+    /* ── MODAL ── */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 61, 69, 0.6);
+      backdrop-filter: blur(4px);
+      z-index: 200;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    .modal-overlay.open { display: flex; }
+
+    .modal {
+      background: white;
+      border-radius: 16px;
+      max-width: 520px;
+      width: 100%;
+      padding: 2.5rem;
+      position: relative;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+      animation: modalIn 0.25s ease;
+    }
+
+    @keyframes modalIn {
+      from { opacity: 0; transform: translateY(16px) scale(0.98); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 1rem; right: 1rem;
+      background: var(--peach);
+      border: none;
+      border-radius: 50%;
+      width: 32px; height: 32px;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--teal-dark);
+      font-size: 1.1rem;
+      transition: background 0.2s;
+    }
+
+    .modal-close:hover { background: var(--peach-mid); }
+
+    .modal-time {
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--coral);
+      margin-bottom: 0.4rem;
+    }
+
+    .modal-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--teal-dark);
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+    }
+
+    .modal-location {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.82rem;
+      color: var(--teal);
+      font-weight: 500;
+      margin-bottom: 1.2rem;
+    }
+
+    .modal-divider {
+      height: 1px;
+      background: var(--peach-mid);
+      margin-bottom: 1.2rem;
+    }
+
+    .modal-speaker {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--teal-dark);
+      margin-bottom: 0.6rem;
+    }
+
+    .modal-desc {
+      font-size: 0.93rem;
+      color: #555;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .modal-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--coral);
+      color: white;
+      text-decoration: none;
+      padding: 0.75rem 1.75rem;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 16px rgba(192,69,42,0.3);
+    }
+
+    .modal-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(192,69,42,0.4); }
+
+    /* clickable timeline items */
+    .timeline-item[data-session] {
+      cursor: pointer;
+    }
+
+    .timeline-item[data-session]:hover .timeline-title {
+      color: var(--coral);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .timeline-item[data-session] .timeline-more {
+      display: inline-block;
+      font-size: 0.75rem;
+      color: var(--teal);
+      font-weight: 500;
+      margin-top: 0.2rem;
+      letter-spacing: 0.03em;
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideIn {
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: rotate(45deg) translateY(0); }
+      50%       { transform: rotate(45deg) translateY(4px); }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 0 1.5rem; }
+
+      .nav-links {
+        display: none;
+        position: fixed;
+        top: 64px; left: 0; right: 0;
+        background: rgba(245,230,211,0.97);
+        backdrop-filter: blur(10px);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 1rem 0;
+        border-bottom: 1px solid var(--peach-mid);
+      }
+
+      .nav-links.open { display: flex; }
+
+      .nav-links li { border-bottom: 1px solid var(--peach-mid); }
+      .nav-links li:last-child { border-bottom: none; }
+
+      .nav-links a {
+        display: block;
+        padding: 1rem 1.5rem;
+        font-size: 1rem;
+      }
+
+      .btn-nav {
+        margin: 0.5rem 1.5rem !important;
+        border-radius: 6px !important;
+        text-align: center;
+        padding: 0.75rem 1.4rem !important;
+      }
+
+      .nav-toggle { display: flex; }
+
+      .about-grid    { grid-template-columns: 1fr; gap: 2rem; }
+      .streams-grid  { grid-template-columns: 1fr; }
+      .sponsors-grid { grid-template-columns: 1fr 1fr; }
+      .hero-meta     { gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#top" class="nav-logo">
+      <img src="assets/images/BLC logo - landscape colour_2x.png" alt="Blended Learning Consortium" />
+    </a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#programme">Programme</a></li>
+      <li><a href="#workshops">Workshops</a></li>
+      <li><a href="#sponsors">Sponsors</a></li>
+      <li><a href="#register" class="btn-nav">Register Now</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="top" class="hero">
+    <div class="hero-bg-lines"></div>
+
+    <div class="hero-badge">
+      <span class="hero-badge-dot"></span>
+      BLC Spring Conference 2026 &nbsp;·&nbsp; In Person
+    </div>
+
+    <h1 class="hero-title">
+      [Conference<br><em>Theme Here]</em>
+    </h1>
+
+    <p class="hero-sub">Promoting and sharing best practice in blended &amp; digital learning</p>
+
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        Thursday 22nd May 2026
+      </div>
+      <div class="hero-meta-item">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        8:30am – 3:30pm
+      </div>
+      <div class="hero-meta-item">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <a href="https://www.howcollege.ac.uk/about/our-campuses/bromsgrove/" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;">Artrix, Bromsgrove Campus</a>
+      </div>
+    </div>
+
+    <div class="hero-ctas">
+      <a href="#register" class="btn-primary">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        Register on Eventbrite
+      </a>
+      <a href="#programme" class="btn-secondary">View Programme</a>
+    </div>
+
+    <div class="hero-scroll-hint">
+      <span>Scroll</span>
+      <div class="scroll-arrow"></div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="about">
+    <div class="container">
+      <div class="about-grid">
+        <div>
+          <p class="section-label">About the Conference</p>
+          <h2 class="section-title">A day built for FE's digital innovators</h2>
+          <div class="section-divider"></div>
+          <div class="about-body">
+            <p>As demand for digital skills grows across the UK and worldwide, it's more important than ever for the Further Education sector to help ensure its learners are ready to meet the needs of today's employers.</p>
+            <p>The Blended Learning Conference brings together teachers, digital developers, and education leaders to share stories, insights, and strategies for using technology to enhance every part of the student experience.</p>
+            <p>This year we go <strong>in person</strong> — an opportunity to connect face to face, share ideas, and explore the latest innovations together.</p>
+          </div>
+        </div>
+        <div class="about-stats">
+          <div class="stat-card">
+            <div class="stat-number">1</div>
+            <div class="stat-label">Packed Day</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">3</div>
+            <div class="stat-label">Workshop Streams</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">25</div>
+            <div class="stat-label">Places Per Stream</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">FE</div>
+            <div class="stat-label">Focused</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROGRAMME -->
+  <section id="programme" class="programme">
+    <div class="container">
+      <p class="section-label">Programme of the Day</p>
+      <h2 class="section-title">What to expect</h2>
+      <div class="section-divider"></div>
+
+      <div class="timeline">
+
+        <div class="timeline-item highlight" data-session="registration">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">08:30 – 09:20</div>
+          <div class="timeline-title">Registration, Networking &amp; Coffee</div>
+          <div class="timeline-speaker">Heart of Worcestershire College</div>
+          <span class="timeline-more">More info ↗</span>
+        </div>
+
+        <div class="timeline-item break">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">09:20 – 09:30</div>
+          <div class="timeline-title">Move over to Artrix</div>
+        </div>
+
+        <div class="timeline-item highlight" data-session="keynote1">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">09:30 – 10:10</div>
+          <div class="timeline-title">Opening &amp; Keynote 1</div>
+          <div class="timeline-speaker">Artrix</div>
+          <span class="timeline-more">More info ↗</span>
+        </div>
+
+        <div class="timeline-item" data-session="blcsession">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">10:10 – 10:50</div>
+          <div class="timeline-title">BLC Session &amp; Member Spotlight</div>
+          <div class="timeline-speaker">BLC · Artrix</div>
+          <span class="timeline-more">More info ↗</span>
+        </div>
+
+        <div class="timeline-item break">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">10:55 – 11:25</div>
+          <div class="timeline-title">Break</div>
+          <div class="timeline-speaker">Artrix</div>
+        </div>
+
+        <div class="timeline-item" data-session="keynote2">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">11:30 – 12:00</div>
+          <div class="timeline-title">Keynote 2</div>
+          <div class="timeline-speaker">Instructure · Artrix</div>
+          <span class="timeline-more">More info ↗</span>
+        </div>
+
+        <div class="timeline-item" data-session="keynote3">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">12:00 – 12:30</div>
+          <div class="timeline-title">Keynote 3</div>
+          <div class="timeline-speaker">Member / Taskmaster · Artrix</div>
+          <span class="timeline-more">More info ↗</span>
+        </div>
+
+        <div class="timeline-item break">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">12:30 – 13:10</div>
+          <div class="timeline-title">Close at Artrix &amp; Lunch</div>
+          <div class="timeline-speaker">Heart of Worcestershire College</div>
+        </div>
+
+        <div class="timeline-item highlight" data-session="workshop1">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">13:15 – 13:45</div>
+          <div class="timeline-title">Workshop 1</div>
+          <div class="timeline-speaker">Heart of Worcestershire College</div>
+          <span class="timeline-more">More info &amp; book ↗</span>
+        </div>
+
+        <div class="timeline-item" data-session="workshop2">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">13:50 – 14:20</div>
+          <div class="timeline-title">Workshop 2</div>
+          <div class="timeline-speaker">Heart of Worcestershire College</div>
+          <span class="timeline-more">More info &amp; book ↗</span>
+        </div>
+
+        <div class="timeline-item break">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">14:20 – 14:45</div>
+          <div class="timeline-title">Break</div>
+          <div class="timeline-speaker">Heart of Worcestershire College</div>
+        </div>
+
+        <div class="timeline-item" data-session="workshop3">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">14:50 – 15:20</div>
+          <div class="timeline-title">Workshop 3</div>
+          <div class="timeline-speaker">Heart of Worcestershire College</div>
+          <span class="timeline-more">More info &amp; book ↗</span>
+        </div>
+
+        <div class="timeline-item highlight">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">15:30</div>
+          <div class="timeline-title">Close</div>
+        </div>
+
+      </div>
+
+      <p style="margin-top:2rem; font-size:0.82rem; color:#999; font-style:italic;">* Programme is indicative and subject to change. Full speaker details to be confirmed.</p>
+    </div>
+  </section>
+
+  <!-- WORKSHOPS -->
+  <section id="workshops" class="workshops">
+    <div class="container">
+      <p class="section-label">Workshops</p>
+      <h2 class="section-title">Choose your stream</h2>
+      <div class="section-divider"></div>
+      <p class="workshops-intro">This year's conference features three parallel workshop streams running throughout the day. Each stream is capped at 25 places to keep sessions focused and interactive. Registration for individual streams opens soon.</p>
+
+      <div class="streams-grid">
+        <div class="stream-card">
+          <div class="stream-number">01</div>
+          <div class="stream-name">Stream 1</div>
+          <div class="stream-desc">Workshop topic and speaker details to be confirmed. Check back soon.</div>
+          <div class="stream-capacity">
+            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+            Limited to 25 places
+          </div>
+        </div>
+
+        <div class="stream-card">
+          <div class="stream-number">02</div>
+          <div class="stream-name">Stream 2</div>
+          <div class="stream-desc">Workshop topic and speaker details to be confirmed. Check back soon.</div>
+          <div class="stream-capacity">
+            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+            Limited to 25 places
+          </div>
+        </div>
+
+        <div class="stream-card">
+          <div class="stream-number">03</div>
+          <div class="stream-name">Stream 3</div>
+          <div class="stream-desc">Workshop topic and speaker details to be confirmed. Check back soon.</div>
+          <div class="stream-capacity">
+            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+            Limited to 25 places
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPONSORS -->
+  <section id="sponsors" class="sponsors">
+    <div class="container">
+      <p class="section-label">Our Sponsors</p>
+      <h2 class="section-title">Supported by</h2>
+      <div class="section-divider"></div>
+      <p class="sponsors-intro">We're grateful to our sponsors who make the BLC Spring Conference possible.</p>
+
+      <div class="sponsors-grid">
+        <div class="sponsor-card dark">
+          <div class="sponsor-tier">Host College</div>
+          <img src="assets/images/How dark logo.PNG" alt="Heart of Worcestershire College" />
+        </div>
+        <div class="sponsor-card">
+          <div class="sponsor-tier">Official BLC Sponsor</div>
+          <div class="sponsor-name">Instructure</div>
+        </div>
+        <div class="sponsor-card">
+          <div class="sponsor-tier">Online Conference Sponsor</div>
+          <div class="sponsor-name">ClickView</div>
+        </div>
+        <div class="sponsor-card sponsor-placeholder">
+          <div class="sponsor-tier">Sponsor</div>
+          <div class="sponsor-name">Your logo here</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REGISTER CTA -->
+  <section id="register" class="register-cta">
+    <div class="container">
+      <p class="section-label">Ready to join us?</p>
+      <h2 class="section-title">Register for the Conference</h2>
+      <div class="section-divider"></div>
+      <p class="register-body">
+        Join us in person on Thursday 22nd May 2026 for a day of inspiration, innovation and collaboration. Secure your place now via Eventbrite — workshop stream registration opens shortly.
+      </p>
+      <a href="#" class="btn-white">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        Register on Eventbrite
+      </a>
+    </div>
+  </section>
+
+  <!-- SESSION MODAL -->
+  <div class="modal-overlay" id="session-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal">
+      <button class="modal-close" id="modal-close" aria-label="Close">&times;</button>
+      <div class="modal-time" id="modal-time"></div>
+      <h3 class="modal-title" id="modal-title"></h3>
+      <div class="modal-location" id="modal-location">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span></span>
+      </div>
+      <div class="modal-divider"></div>
+      <div class="modal-speaker" id="modal-speaker"></div>
+      <p class="modal-desc" id="modal-desc"></p>
+      <a href="#" class="modal-btn" id="modal-book" target="_blank" rel="noopener">
+        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        Book your place on Eventbrite
+      </a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 Blended Learning Consortium · <a href="https://blc-fe.org">blc-fe.org</a></p>
+  </footer>
+
+  <script>
+    // ── NAV ──
+    const toggle = document.querySelector('.nav-toggle');
+    const navLinks = document.getElementById('nav-links');
+
+    toggle.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      toggle.classList.toggle('open', isOpen);
+      toggle.setAttribute('aria-expanded', isOpen);
+    });
+
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        toggle.classList.remove('open');
+        toggle.setAttribute('aria-expanded', false);
+      });
+    });
+
+    // ── SESSION DATA ──
+    // Fill in description and eventbriteUrl when you have the details.
+    // Set eventbriteUrl to null to hide the booking button.
+    const sessions = {
+      registration: {
+        title: 'Registration, Networking & Coffee',
+        time: '08:30 – 09:20',
+        location: 'Heart of Worcestershire College',
+        speaker: null,
+        description: 'Arrive, grab a coffee and meet fellow attendees before the conference kicks off. Full details to be confirmed.',
+        eventbriteUrl: null,
+      },
+      keynote1: {
+        title: 'Opening & Keynote 1',
+        time: '09:30 – 10:10',
+        location: 'Artrix, Bromsgrove Campus',
+        speaker: 'Speaker TBC',
+        description: 'The opening keynote sets the tone for the day. Speaker and topic to be confirmed — check back soon.',
+        eventbriteUrl: null,
+      },
+      blcsession: {
+        title: 'BLC Session & Member Spotlight',
+        time: '10:10 – 10:50',
+        location: 'Artrix, Bromsgrove Campus',
+        speaker: 'Blended Learning Consortium',
+        description: 'Hear the latest updates from the BLC team and a spotlight from one of our member institutions. Details to be confirmed.',
+        eventbriteUrl: null,
+      },
+      keynote2: {
+        title: 'Keynote 2',
+        time: '11:30 – 12:00',
+        location: 'Artrix, Bromsgrove Campus',
+        speaker: 'Instructure',
+        description: 'Keynote presentation from Instructure. Topic and speaker to be confirmed.',
+        eventbriteUrl: null,
+      },
+      keynote3: {
+        title: 'Keynote 3',
+        time: '12:00 – 12:30',
+        location: 'Artrix, Bromsgrove Campus',
+        speaker: 'Member / Taskmaster — TBC',
+        description: 'Our third keynote of the morning. Speaker and topic to be confirmed.',
+        eventbriteUrl: null,
+      },
+      workshop1: {
+        title: 'Workshop 1',
+        time: '13:15 – 13:45',
+        location: 'Heart of Worcestershire College',
+        speaker: 'Speaker TBC',
+        description: 'Workshop topic and facilitator to be confirmed. Places are limited to 25 — book early to avoid missing out.',
+        eventbriteUrl: null, // e.g. 'https://www.eventbrite.co.uk/e/...'
+      },
+      workshop2: {
+        title: 'Workshop 2',
+        time: '13:50 – 14:20',
+        location: 'Heart of Worcestershire College',
+        speaker: 'Speaker TBC',
+        description: 'Workshop topic and facilitator to be confirmed. Places are limited to 25 — book early to avoid missing out.',
+        eventbriteUrl: null,
+      },
+      workshop3: {
+        title: 'Workshop 3',
+        time: '14:50 – 15:20',
+        location: 'Heart of Worcestershire College',
+        speaker: 'Speaker TBC',
+        description: 'Workshop topic and facilitator to be confirmed. Places are limited to 25 — book early to avoid missing out.',
+        eventbriteUrl: null,
+      },
+    };
+
+    // ── MODAL ──
+    const overlay  = document.getElementById('session-modal');
+    const closeBtn = document.getElementById('modal-close');
+
+    function openModal(key) {
+      const s = sessions[key];
+      if (!s) return;
+
+      document.getElementById('modal-time').textContent  = s.time;
+      document.getElementById('modal-title').textContent = s.title;
+      document.getElementById('modal-desc').textContent  = s.description;
+
+      const locationEl = document.querySelector('#modal-location span');
+      locationEl.textContent = s.location;
+
+      const speakerEl = document.getElementById('modal-speaker');
+      if (s.speaker) {
+        speakerEl.textContent = s.speaker;
+        speakerEl.style.display = '';
+      } else {
+        speakerEl.style.display = 'none';
+      }
+
+      const bookBtn = document.getElementById('modal-book');
+      if (s.eventbriteUrl) {
+        bookBtn.href = s.eventbriteUrl;
+        bookBtn.style.display = '';
+      } else {
+        bookBtn.style.display = 'none';
+      }
+
+      overlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      overlay.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('.timeline-item[data-session]').forEach(item => {
+      item.addEventListener('click', () => openModal(item.dataset.session));
+    });
+
+    closeBtn.addEventListener('click', closeModal);
+    overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+  </script>
+
+</body>
+</html>
