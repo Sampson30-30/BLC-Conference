@@ -20,13 +20,20 @@
       --sand:     #f0e0c8;
       --charcoal: #1e1e1e;
       --white:    #ffffff;
+      --test-bg:  #151524;
+      --test-btn: #25556d;
+      --blc-pink:   #e61077;
+      --blc-cyan:   #55edf9;
+      --blc-orange: #f3931d;
+      --blc-yellow: #f8c81e;
+      --blc-dark:   #333333;
     }
 
     html { scroll-behavior: smooth; }
 
     body {
       font-family: 'DM Sans', sans-serif;
-      background: var(--peach);
+      background: var(--test-bg);
       color: var(--charcoal);
       overflow-x: hidden;
     }
@@ -36,9 +43,9 @@
       position: fixed;
       top: 0; left: 0; right: 0;
       z-index: 100;
-      background: rgba(245,230,211,0.92);
+      background: rgba(21,21,36,0.92);
       backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--peach-mid);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -67,16 +74,16 @@
 
     .nav-links a {
       text-decoration: none;
-      color: var(--teal-dark);
+      color: rgba(255,255,255,0.8);
       font-size: 0.9rem;
       font-weight: 500;
       transition: color 0.2s;
     }
 
-    .nav-links a:hover { color: var(--coral); }
+    .nav-links a:hover { color: var(--blc-cyan); }
 
     .btn-nav {
-      background: var(--teal);
+      background: var(--blc-pink);
       color: white !important;
       padding: 0.55rem 1.4rem;
       border-radius: 6px;
@@ -84,7 +91,7 @@
       transition: background 0.2s !important;
     }
 
-    .btn-nav:hover { background: var(--teal-dark) !important; color: white !important; }
+    .btn-nav:hover { background: var(--blc-dark) !important; color: white !important; }
 
     /* ── HAMBURGER ── */
     .nav-toggle {
@@ -103,7 +110,7 @@
       display: block;
       width: 24px;
       height: 2px;
-      background: var(--teal-dark);
+      background: var(--white);
       border-radius: 2px;
       transition: transform 0.3s, opacity 0.3s;
       transform-origin: center;
@@ -143,13 +150,13 @@
 
     .hero-bg-lines::before {
       width: 700px; height: 700px;
-      background: radial-gradient(circle, var(--coral) 0%, transparent 70%);
+      background: radial-gradient(circle, var(--blc-pink) 0%, transparent 70%);
       top: -200px; right: -150px;
     }
 
     .hero-bg-lines::after {
       width: 500px; height: 500px;
-      background: radial-gradient(circle, var(--teal) 0%, transparent 70%);
+      background: radial-gradient(circle, var(--blc-cyan) 0%, transparent 70%);
       bottom: -100px; left: -100px;
     }
 
@@ -157,7 +164,7 @@
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      background: var(--teal);
+      background: var(--blc-pink);
       color: white;
       font-size: 0.75rem;
       font-weight: 500;
@@ -171,7 +178,7 @@
 
     .hero-badge-dot {
       width: 6px; height: 6px;
-      background: var(--amber);
+      background: var(--blc-yellow);
       border-radius: 50%;
     }
 
@@ -180,14 +187,14 @@
       font-size: clamp(3rem, 7vw, 6rem);
       font-weight: 900;
       line-height: 1.05;
-      color: var(--teal-dark);
+      color: var(--white);
       margin-bottom: 0.4rem;
       animation: fadeUp 0.6s 0.1s ease both;
     }
 
     .hero-title em {
       font-style: italic;
-      color: var(--coral);
+      color: var(--blc-cyan);
     }
 
     .hero-sub {
@@ -195,7 +202,7 @@
       font-size: clamp(1.1rem, 2.5vw, 1.6rem);
       font-weight: 700;
       font-style: italic;
-      color: var(--teal);
+      color: var(--white);
       margin-bottom: 1.5rem;
       animation: fadeUp 0.6s 0.2s ease both;
     }
@@ -215,11 +222,11 @@
       align-items: center;
       gap: 0.5rem;
       font-size: 0.95rem;
-      color: var(--teal-dark);
+      color: var(--white);
       font-weight: 500;
     }
 
-    .hero-meta-item svg { color: var(--coral); flex-shrink: 0; }
+    .hero-meta-item svg { color: var(--blc-cyan); flex-shrink: 0; }
 
     .hero-ctas {
       display: flex;
@@ -233,7 +240,7 @@
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      background: var(--coral);
+      background: var(--blc-pink);
       color: white;
       text-decoration: none;
       padding: 0.85rem 2rem;
@@ -241,7 +248,7 @@
       font-size: 1rem;
       font-weight: 500;
       transition: transform 0.2s, box-shadow 0.2s;
-      box-shadow: 0 4px 20px rgba(192,69,42,0.3);
+      box-shadow: 0 4px 20px rgba(230,16,119,0.35);
     }
 
     .btn-primary:hover {
@@ -253,18 +260,18 @@
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      background: transparent;
-      color: var(--teal-dark);
+      background: var(--blc-cyan);
+      color: var(--blc-dark);
       text-decoration: none;
       padding: 0.85rem 2rem;
       border-radius: 8px;
       font-size: 1rem;
       font-weight: 500;
-      border: 2px solid var(--teal);
+      border: 2px solid var(--blc-cyan);
       transition: background 0.2s, color 0.2s;
     }
 
-    .btn-secondary:hover { background: var(--teal); color: white; }
+    .btn-secondary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(85,237,249,0.3); }
 
     .hero-scroll-hint {
       position: absolute;
@@ -275,7 +282,7 @@
       flex-direction: column;
       align-items: center;
       gap: 0.4rem;
-      color: var(--teal);
+      color: var(--white);
       font-size: 0.75rem;
       letter-spacing: 0.08em;
       text-transform: uppercase;
@@ -285,8 +292,8 @@
 
     .scroll-arrow {
       width: 20px; height: 20px;
-      border-right: 2px solid var(--teal);
-      border-bottom: 2px solid var(--teal);
+      border-right: 2px solid var(--white);
+      border-bottom: 2px solid var(--white);
       transform: rotate(45deg);
       animation: bounce 1.5s infinite;
     }
@@ -301,7 +308,7 @@
       font-weight: 500;
       letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: var(--coral);
+      color: var(--blc-pink);
       margin-bottom: 0.6rem;
     }
 
@@ -309,7 +316,7 @@
       font-family: 'Playfair Display', serif;
       font-size: clamp(1.8rem, 4vw, 2.8rem);
       font-weight: 700;
-      color: var(--teal-dark);
+      color: var(--blc-dark);
       margin-bottom: 1.5rem;
       line-height: 1.15;
     }
@@ -317,7 +324,7 @@
     .section-divider {
       width: 60px;
       height: 3px;
-      background: var(--teal);
+      background: var(--blc-cyan);
       margin-bottom: 2rem;
       border-radius: 2px;
     }
@@ -353,7 +360,7 @@
       font-family: 'Playfair Display', serif;
       font-size: 2.4rem;
       font-weight: 900;
-      color: var(--coral);
+      color: var(--blc-pink);
       line-height: 1;
       margin-bottom: 0.3rem;
     }
@@ -361,7 +368,7 @@
     .stat-label {
       font-size: 0.8rem;
       font-weight: 500;
-      color: var(--teal-dark);
+      color: var(--blc-dark);
       text-transform: uppercase;
       letter-spacing: 0.05em;
     }
@@ -376,7 +383,7 @@
       position: absolute;
       left: 0; top: 0; bottom: 0;
       width: 2px;
-      background: linear-gradient(to bottom, var(--teal), var(--amber), var(--coral));
+      background: linear-gradient(to bottom, var(--blc-cyan), var(--blc-yellow), var(--blc-pink));
       border-radius: 2px;
     }
 
@@ -407,13 +414,13 @@
       left: -2.35rem; top: 0.2rem;
       width: 12px; height: 12px;
       border-radius: 50%;
-      background: var(--teal);
-      border: 2px solid var(--peach);
+      background: var(--blc-cyan);
+      border: 2px solid white;
     }
 
-    .timeline-item.break .timeline-dot  { background: var(--amber); }
+    .timeline-item.break .timeline-dot  { background: var(--blc-yellow); }
     .timeline-item.highlight .timeline-dot {
-      background: var(--coral);
+      background: var(--blc-pink);
       width: 16px; height: 16px;
       left: -2.55rem;
     }
@@ -421,17 +428,17 @@
     .timeline-time {
       font-size: 0.8rem;
       font-weight: 500;
-      color: var(--coral);
+      color: var(--blc-pink);
       letter-spacing: 0.05em;
       margin-bottom: 0.2rem;
     }
 
-    .timeline-item.break .timeline-time { color: var(--amber); }
+    .timeline-item.break .timeline-time { color: var(--blc-yellow); }
 
     .timeline-title {
       font-size: 1rem;
       font-weight: 500;
-      color: var(--teal-dark);
+      color: var(--blc-dark);
       line-height: 1.4;
     }
 
@@ -444,17 +451,17 @@
     .timeline-item.highlight .timeline-title {
       font-size: 1.05rem;
       font-weight: 600;
-      color: var(--coral);
+      color: var(--blc-pink);
     }
 
     .timeline-speaker { font-size: 0.82rem; color: #888; margin-top: 0.15rem; }
 
     /* ── WORKSHOPS ── */
-    .workshops { background: var(--teal-dark); color: white; }
+    .workshops { background: var(--test-bg); color: white; }
 
-    .workshops .section-label  { color: var(--amber); }
+    .workshops .section-label  { color: var(--blc-yellow); }
     .workshops .section-title  { color: white; }
-    .workshops .section-divider { background: var(--amber); }
+    .workshops .section-divider { background: var(--blc-yellow); }
 
     .workshops-intro {
       color: rgba(255,255,255,0.7);
@@ -487,9 +494,9 @@
       height: 3px;
     }
 
-    .stream-card:nth-child(1)::before { background: var(--coral); }
-    .stream-card:nth-child(2)::before { background: var(--amber); }
-    .stream-card:nth-child(3)::before { background: #5bc4d0; }
+    .stream-card:nth-child(1)::before { background: var(--blc-pink); }
+    .stream-card:nth-child(2)::before { background: var(--blc-orange); }
+    .stream-card:nth-child(3)::before { background: var(--blc-cyan); }
 
     .stream-card:hover { transform: translateY(-4px); background: rgba(255,255,255,0.11); }
 
@@ -502,25 +509,40 @@
       margin-bottom: 0.5rem;
     }
 
-    .stream-name  { font-size: 1.1rem; font-weight: 600; color: white; margin-bottom: 0.5rem; }
+    .stream-name  { font-size: 1.1rem; font-weight: 600; color: white; margin-bottom: 1.2rem; }
 
-    .stream-desc  {
+    .stream-workshops {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .stream-workshop-item {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+    }
+
+    .stream-workshop-title {
       font-size: 0.88rem;
-      color: rgba(255,255,255,0.6);
-      line-height: 1.6;
-      margin-bottom: 1.2rem;
+      font-weight: 500;
+      color: white;
+      margin-bottom: 0.35rem;
+      line-height: 1.4;
     }
 
     .stream-capacity {
       display: inline-flex;
       align-items: center;
       gap: 0.4rem;
-      background: rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.08);
       border-radius: 100px;
-      padding: 0.3rem 0.8rem;
-      font-size: 0.78rem;
+      padding: 0.2rem 0.6rem;
+      font-size: 0.72rem;
       font-weight: 500;
-      color: var(--amber);
+      color: var(--blc-yellow);
     }
 
     /* ── SPONSORS ── */
@@ -548,21 +570,21 @@
       text-align: center;
     }
 
-    .sponsor-card:hover { border-color: var(--teal); transform: translateY(-2px); }
+    .sponsor-card:hover { border-color: var(--blc-pink); transform: translateY(-2px); }
 
     .sponsor-tier {
       font-size: 0.68rem;
       font-weight: 600;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--coral);
+      color: var(--blc-pink);
     }
 
     .sponsor-name {
       font-family: 'Playfair Display', serif;
       font-size: 1.4rem;
       font-weight: 700;
-      color: var(--teal-dark);
+      color: var(--blc-dark);
     }
 
     .sponsor-placeholder { border-style: dashed; opacity: 0.5; }
@@ -591,7 +613,7 @@
 
     /* ── REGISTER CTA ── */
     .register-cta {
-      background: linear-gradient(135deg, var(--coral) 0%, #a03020 100%);
+      background: linear-gradient(135deg, var(--blc-pink) 0%, #a00855 100%);
       color: white;
       text-align: center;
     }
@@ -615,7 +637,7 @@
       align-items: center;
       gap: 0.5rem;
       background: white;
-      color: var(--coral);
+      color: var(--blc-pink);
       text-decoration: none;
       padding: 1rem 2.5rem;
       border-radius: 8px;
@@ -629,7 +651,7 @@
 
     /* ── FOOTER ── */
     footer {
-      background: var(--teal-dark);
+      background: var(--test-bg);
       color: rgba(255,255,255,0.5);
       text-align: center;
       padding: 2rem;
@@ -673,25 +695,25 @@
     .modal-close {
       position: absolute;
       top: 1rem; right: 1rem;
-      background: var(--peach);
+      background: #f0f0f0;
       border: none;
       border-radius: 50%;
       width: 32px; height: 32px;
       cursor: pointer;
       display: flex; align-items: center; justify-content: center;
-      color: var(--teal-dark);
+      color: var(--blc-dark);
       font-size: 1.1rem;
       transition: background 0.2s;
     }
 
-    .modal-close:hover { background: var(--peach-mid); }
+    .modal-close:hover { background: #e0e0e0; }
 
     .modal-time {
       font-size: 0.78rem;
       font-weight: 500;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: var(--coral);
+      color: var(--blc-pink);
       margin-bottom: 0.4rem;
     }
 
@@ -699,7 +721,7 @@
       font-family: 'Playfair Display', serif;
       font-size: 1.5rem;
       font-weight: 700;
-      color: var(--teal-dark);
+      color: var(--blc-dark);
       margin-bottom: 0.5rem;
       line-height: 1.2;
     }
@@ -709,21 +731,21 @@
       align-items: center;
       gap: 0.35rem;
       font-size: 0.82rem;
-      color: var(--teal);
+      color: var(--blc-dark);
       font-weight: 500;
       margin-bottom: 1.2rem;
     }
 
     .modal-divider {
       height: 1px;
-      background: var(--peach-mid);
+      background: #e0e0e0;
       margin-bottom: 1.2rem;
     }
 
     .modal-speaker {
       font-size: 0.88rem;
       font-weight: 600;
-      color: var(--teal-dark);
+      color: var(--blc-dark);
       margin-bottom: 0.6rem;
     }
 
@@ -738,7 +760,7 @@
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      background: var(--coral);
+      background: var(--blc-pink);
       color: white;
       text-decoration: none;
       padding: 0.75rem 1.75rem;
@@ -746,10 +768,10 @@
       font-size: 0.95rem;
       font-weight: 500;
       transition: transform 0.2s, box-shadow 0.2s;
-      box-shadow: 0 4px 16px rgba(192,69,42,0.3);
+      box-shadow: 0 4px 16px rgba(230,16,119,0.3);
     }
 
-    .modal-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(192,69,42,0.4); }
+    .modal-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(230,16,119,0.4); }
 
     /* clickable timeline items */
     .timeline-item[data-session] {
@@ -757,7 +779,7 @@
     }
 
     .timeline-item[data-session]:hover .timeline-title {
-      color: var(--coral);
+      color: var(--blc-pink);
       text-decoration: underline;
       text-underline-offset: 3px;
     }
@@ -765,7 +787,7 @@
     .timeline-item[data-session] .timeline-more {
       display: inline-block;
       font-size: 0.75rem;
-      color: var(--teal);
+      color: var(--blc-cyan);
       font-weight: 500;
       margin-top: 0.2rem;
       letter-spacing: 0.03em;
@@ -800,12 +822,12 @@
         align-items: stretch;
         gap: 0;
         padding: 1rem 0;
-        border-bottom: 1px solid var(--peach-mid);
+        border-bottom: 1px solid rgba(255,255,255,0.08);
       }
 
       .nav-links.open { display: flex; }
 
-      .nav-links li { border-bottom: 1px solid var(--peach-mid); }
+      .nav-links li { border-bottom: 1px solid rgba(255,255,255,0.08); }
       .nav-links li:last-child { border-bottom: none; }
 
       .nav-links a {
@@ -857,11 +879,11 @@
 
     <div class="hero-badge">
       <span class="hero-badge-dot"></span>
-      BLC Spring Conference 2026 &nbsp;·&nbsp; In Person
+      BLC Conference 2026 &nbsp;·&nbsp; In Person
     </div>
 
     <h1 class="hero-title">
-      [Conference<br><em>Theme Here]</em>
+      [BLC 2026 Conference<br><em>Theme Here]</em>
     </h1>
 
     <p class="hero-sub">Promoting and sharing best practice in blended &amp; digital learning</p>
@@ -919,12 +941,12 @@
             <div class="stat-label">Workshop Streams</div>
           </div>
           <div class="stat-card">
-            <div class="stat-number">25</div>
-            <div class="stat-label">Places Per Stream</div>
+            <div class="stat-number">12</div>
+            <div class="stat-label">Workshops</div>
           </div>
           <div class="stat-card">
-            <div class="stat-number">FE</div>
-            <div class="stat-label">Focused</div>
+            <div class="stat-number">25</div>
+            <div class="stat-label">Places Per Stream</div>
           </div>
         </div>
       </div>
@@ -1000,35 +1022,18 @@
           <div class="timeline-speaker">Heart of Worcestershire College</div>
         </div>
 
-        <div class="timeline-item highlight" data-session="workshop1">
+        <div class="timeline-item highlight">
           <div class="timeline-dot"></div>
-          <div class="timeline-time">13:15 – 13:45</div>
-          <div class="timeline-title">Workshop 1</div>
-          <div class="timeline-speaker">Heart of Worcestershire College</div>
-          <span class="timeline-more">More info &amp; book ↗</span>
-        </div>
-
-        <div class="timeline-item" data-session="workshop2">
-          <div class="timeline-dot"></div>
-          <div class="timeline-time">13:50 – 14:20</div>
-          <div class="timeline-title">Workshop 2</div>
-          <div class="timeline-speaker">Heart of Worcestershire College</div>
-          <span class="timeline-more">More info &amp; book ↗</span>
+          <div class="timeline-time">13:15 – 15:15</div>
+          <div class="timeline-title">Workshop Streams</div>
+          <div class="timeline-speaker">Three parallel streams running simultaneously — choose your workshops</div>
+          <a href="#workshops" class="timeline-more">See all workshops ↓</a>
         </div>
 
         <div class="timeline-item break">
           <div class="timeline-dot"></div>
-          <div class="timeline-time">14:20 – 14:45</div>
-          <div class="timeline-title">Break</div>
-          <div class="timeline-speaker">Heart of Worcestershire College</div>
-        </div>
-
-        <div class="timeline-item" data-session="workshop3">
-          <div class="timeline-dot"></div>
-          <div class="timeline-time">14:50 – 15:20</div>
-          <div class="timeline-title">Workshop 3</div>
-          <div class="timeline-speaker">Heart of Worcestershire College</div>
-          <span class="timeline-more">More info &amp; book ↗</span>
+          <div class="timeline-time">15:15 – 15:30</div>
+          <div class="timeline-title">Break &amp; wrap up</div>
         </div>
 
         <div class="timeline-item highlight">
@@ -1047,39 +1052,114 @@
   <section id="workshops" class="workshops">
     <div class="container">
       <p class="section-label">Workshops</p>
-      <h2 class="section-title">Choose your stream</h2>
+      <h2 class="section-title">Choose your workshops</h2>
       <div class="section-divider"></div>
-      <p class="workshops-intro">This year's conference features three parallel workshop streams running throughout the day. Each stream is capped at 25 places to keep sessions focused and interactive. Registration for individual streams opens soon.</p>
+      <p class="workshops-intro">Three streams run simultaneously throughout the day — each offering four workshops to choose from. Pick the sessions that are most relevant to you. Places are limited to keep sessions focused and interactive.</p>
 
       <div class="streams-grid">
         <div class="stream-card">
           <div class="stream-number">01</div>
           <div class="stream-name">Stream 1</div>
-          <div class="stream-desc">Workshop topic and speaker details to be confirmed. Check back soon.</div>
-          <div class="stream-capacity">
-            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
-            Limited to 25 places
-          </div>
+          <ul class="stream-workshops">
+            <li class="stream-workshop-item">
+              <div class="stream-workshop-title">Workshop title to be confirmed</div>
+              <div class="stream-capacity">
+                <svg width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+                25 places
+              </div>
+            </li>
+            <li class="stream-workshop-item">
+              <div class="stream-workshop-title">Workshop title to be confirmed</div>
+              <div class="stream-capacity">
+                <svg width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+                25 places
+              </div>
+            </li>
+            <li class="stream-workshop-item">
+              <div class="stream-workshop-title">Workshop title to be confirmed</div>
+              <div class="stream-capacity">
+                <svg width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+                25 places
+              </div>
+            </li>
+            <li class="stream-workshop-item">
+              <div class="stream-workshop-title">Workshop title to be confirmed</div>
+              <div class="stream-capacity">
+                <svg width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+                25 places
+              </div>
+            </li>
+          </ul>
         </div>
 
         <div class="stream-card">
           <div class="stream-number">02</div>
           <div class="stream-name">Stream 2</div>
-          <div class="stream-desc">Workshop topic and speaker details to be confirmed. Check back soon.</div>
-          <div class="stream-capacity">
-            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
-            Limited to 25 places
-          </div>
+          <ul class="stream-workshops">
+            <li class="stream-workshop-item">
+              <div class="stream-workshop-title">Workshop title to be confirmed</div>
+              <div class="stream-capacity">
+                <svg width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+                25 places
+              </div>
+            </li>
+            <li class="stream-workshop-item">
+              <div class="stream-workshop-title">Workshop title to be confirmed</div>
+              <div class="stream-capacity">
+                <svg width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+                25 places
+              </div>
+            </li>
+            <li class="stream-workshop-item">
+              <div class="stream-workshop-title">Workshop title to be confirmed</div>
+              <div class="stream-capacity">
+                <svg width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+                25 places
+              </div>
+            </li>
+            <li class="stream-workshop-item">
+              <div class="stream-workshop-title">Workshop title to be confirmed</div>
+              <div class="stream-capacity">
+                <svg width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+                25 places
+              </div>
+            </li>
+          </ul>
         </div>
 
         <div class="stream-card">
           <div class="stream-number">03</div>
           <div class="stream-name">Stream 3</div>
-          <div class="stream-desc">Workshop topic and speaker details to be confirmed. Check back soon.</div>
-          <div class="stream-capacity">
-            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
-            Limited to 25 places
-          </div>
+          <ul class="stream-workshops">
+            <li class="stream-workshop-item">
+              <div class="stream-workshop-title">Workshop title to be confirmed</div>
+              <div class="stream-capacity">
+                <svg width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+                25 places
+              </div>
+            </li>
+            <li class="stream-workshop-item">
+              <div class="stream-workshop-title">Workshop title to be confirmed</div>
+              <div class="stream-capacity">
+                <svg width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+                25 places
+              </div>
+            </li>
+            <li class="stream-workshop-item">
+              <div class="stream-workshop-title">Workshop title to be confirmed</div>
+              <div class="stream-capacity">
+                <svg width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+                25 places
+              </div>
+            </li>
+            <li class="stream-workshop-item">
+              <div class="stream-workshop-title">Workshop title to be confirmed</div>
+              <div class="stream-capacity">
+                <svg width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+                25 places
+              </div>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
@@ -1091,7 +1171,7 @@
       <p class="section-label">Our Sponsors</p>
       <h2 class="section-title">Supported by</h2>
       <div class="section-divider"></div>
-      <p class="sponsors-intro">We're grateful to our sponsors who make the BLC Spring Conference possible.</p>
+      <p class="sponsors-intro">We're grateful to our sponsors who make the BLC Conference possible.</p>
 
       <div class="sponsors-grid">
         <div class="sponsor-card dark">
