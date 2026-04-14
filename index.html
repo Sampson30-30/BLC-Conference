@@ -457,7 +457,28 @@
     .timeline-speaker { font-size: 0.82rem; color: var(--blc-dark); margin-top: 0.15rem; }
 
     /* ── WORKSHOPS ── */
-    .workshops { display: none; background: var(--test-bg); color: white; }
+    .workshops { background: var(--test-bg); color: white; }
+
+    .workshops-coming-soon {
+      background: rgba(255,255,255,0.05);
+      border: 2px dashed rgba(255,255,255,0.2);
+      border-radius: 12px;
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .workshops-coming-soon-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: white;
+      margin-bottom: 0.8rem;
+    }
+
+    .workshops-coming-soon-text {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.6;
+    }
 
     .workshops .section-label  { color: var(--blc-yellow); }
     .workshops .section-title  { color: white; }
@@ -1053,9 +1074,12 @@
       <p class="section-label">Workshops</p>
       <h2 class="section-title">Choose your workshops</h2>
       <div class="section-divider"></div>
-      <p class="workshops-intro">Three streams run simultaneously throughout the day. With each offering four workshops to choose from. Pick the sessions that are most relevant to you. Places are limited to keep sessions focused and interactive.</p>
+      <div class="workshops-coming-soon">
+        <h3 class="workshops-coming-soon-title">More info coming soon</h3>
+        <p class="workshops-coming-soon-text">Workshop details and facilitators will be confirmed shortly. Three streams will run simultaneously throughout the day, each offering multiple workshops. Places are limited to keep sessions focused and interactive.</p>
+      </div>
 
-      <div class="streams-grid">
+      <div class="streams-grid" style="display: none;">
         <div class="stream-card">
           <div class="stream-number">01</div>
           <div class="stream-name">Stream 1</div>
