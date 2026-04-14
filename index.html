@@ -1002,7 +1002,7 @@
           <div class="timeline-dot"></div>
           <div class="timeline-time">11:30 – 12:00</div>
           <div class="timeline-title">Keynote 2</div>
-          <div class="timeline-speaker">Instructure · Artrix</div>
+          <div class="timeline-speaker">More info coming soon · Artrix</div>
           <span class="timeline-more">More info ↗</span>
         </div>
 
@@ -1010,7 +1010,7 @@
           <div class="timeline-dot"></div>
           <div class="timeline-time">12:00 – 12:30</div>
           <div class="timeline-title">Keynote 3</div>
-          <div class="timeline-speaker">Member / Taskmaster · Artrix</div>
+          <div class="timeline-speaker">More info coming soon · Artrix</div>
           <span class="timeline-more">More info ↗</span>
         </div>
 
@@ -1177,9 +1177,9 @@
           <div class="sponsor-tier">Host College</div>
           <img src="assets/images/How dark logo.PNG" alt="Heart of Worcestershire College" />
         </div>
-        <div class="sponsor-card">
-          <div class="sponsor-tier">Official BLC Sponsor</div>
-          <div class="sponsor-name">Instructure</div>
+        <div class="sponsor-card sponsor-placeholder">
+          <div class="sponsor-tier">Sponsor</div>
+          <div class="sponsor-name">Your logo here</div>
         </div>
         <div class="sponsor-card">
           <div class="sponsor-tier">Online Conference Sponsor</div>
@@ -1202,10 +1202,7 @@
       <p class="register-body">
         Join us in person on Thursday 25th June 2026 for a day of inspiration, innovation and collaboration. Secure your place now via Eventbrite — workshop stream registration opens shortly.
       </p>
-      <a href="#" class="btn-white">
-        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-        Register on Eventbrite
-      </a>
+      <div id="eventbrite-widget-container-1985571218966"></div>
     </div>
   </section>
 
@@ -1285,16 +1282,16 @@
         title: 'Keynote 2',
         time: '11:30 – 12:00',
         location: 'Artrix, Bromsgrove Campus',
-        speaker: 'Instructure',
-        description: 'Keynote presentation from Instructure. Topic and speaker to be confirmed.',
+        speaker: 'More info coming soon',
+        description: 'More info coming soon.',
         eventbriteUrl: null,
       },
       keynote3: {
         title: 'Keynote 3',
         time: '12:00 – 12:30',
         location: 'Artrix, Bromsgrove Campus',
-        speaker: 'Member / Taskmaster — TBC',
-        description: 'Our third keynote of the morning. Speaker and topic to be confirmed.',
+        speaker: 'More info coming soon',
+        description: 'More info coming soon.',
         eventbriteUrl: null,
       },
       workshop1: {
@@ -1370,6 +1367,22 @@
     closeBtn.addEventListener('click', closeModal);
     overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+  </script>
+
+  <!-- EVENTBRITE WIDGET -->
+  <script src="https://www.eventbrite.co.uk/static/widgets/eb_widgets.js"></script>
+  <script type="text/javascript">
+    var exampleCallback = function() {
+      console.log('Order complete!');
+    };
+
+    window.EBWidgets.createWidget({
+      widgetType: 'checkout',
+      eventId: '1985571218966',
+      iframeContainerId: 'eventbrite-widget-container-1985571218966',
+      iframeContainerHeight: 425,
+      onOrderComplete: exampleCallback
+    });
   </script>
 
 </body>
